@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Quoting Template</title>
+    <style>
+        @font-face {
+        font-family: 'LiberationSans';
+        src: url('https://carino.systems/webfonts/LiberationSans-Regular.ttf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'LiberationSans';
+        src: url('https://carino.systems/webfonts/LiberationSans-Bold.ttf') format('opentype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'LiberationSans';
+        src: url('https://carino.systems/webfonts/LiberationSans-Italic.ttf') format('opentype');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'LiberationSans';
+        src: url('https://carino.systems/webfonts/LiberationSans-BoldItalic.ttf') format('opentype');
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'LiberationMono';
+        src: url('https://carino.systems/webfonts/LiberationMono-Regular.ttf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'LiberationMono';
+        src: url('https://carino.systems/webfonts/LiberationMono-Bold.ttf') format('opentype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'LiberationMono';
+        src: url('https://carino.systems/webfonts/LiberationMono-Italic.ttf') format('opentype');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'LiberationMono';
+        src: url('https://carino.systems/webfonts/LiberationMono-BoldItalic.ttf') format('opentype');
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'RedHatFont';
+        src: url('https://carino.systems/webfonts/RedHatDisplay-Italic.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'RedHatFont';
+        src: url('https://carino.systems/webfonts/RedHatDisplay-Italic.otf') format('opentype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'RedHatFont';
+        src: url('https://carino.systems/webfonts/RedHatDisplay-Italic.otf') format('opentype');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'RedHatFont';
+        src: url('https://carino.systems/webfonts/RedHatDisplay-Italic.otf') format('opentype');
+        font-weight: bold;
+        font-style: italic;
+}
+        body {
+            font-family: LiberationSans;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-sizing: border-box; /* Ensure padding is included in the width */
+        }
+        .navbar .logo {
+            height: 40px;
+        }
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .navbar .github-link {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+        .navbar .language-select {
+            margin-right: 15px;
+            font-size: 14px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 95%;
+            margin: 100px auto 20px auto; /* Adjusted margin for fixed navbar */
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-column, .right-column {
+            padding: 10px;
+        }
+        .left-column {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+        .right-column {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            flex: 0 0 120px;
+            margin-right: 10px;
+            padding-left: 10px;
+        }
+        .form-group input, .form-group select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex: 1;
+        }
+        .form-group.inline {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .FieldType1, .FieldType2, .FieldType3, .FieldType5, .FieldType6 {
+            flex: 0 0 100%;
+        }
+        .FieldType4 {
+            flex: 0 0 50%;
+        }
+        .section {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .section.second {
+            background-color: #f1f1f1;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 0px solid #ccc; /*Enabling it makes non-used columns appear when there are no different currencies - Fix required*/
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .commentary-cell {
+            text-align: left;
+            padding-left: 10px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            border-radius: 50%;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+        @media (min-width: 768px) {
+            .left-column {
+                flex: 1;
+                max-width: 45%;
+            }
+            .right-column {
+                flex: 1;
+                max-width: 55%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/20.3.3/i18next.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/6.0.1/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://carino.systems/"><img src="https://carino.systems/assets/images/logo.webp" alt="Logo" class="logo"></a>
+        <div class="title"><span data-i18n="General Quotation">General Quotation</span><span id="current-date"></span></div>
+        <select class="language-select" id="language-select">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="ja">Japanese</option>
+            <option value="ru">Russian</option>
+            <option value="iu">Inuktitut</option>
+        </select>
+        <a href="https://github.com/MiguelCarino/GeneralQuotation" class="github-link">Github</a>
+    </div>
+    <div class="container">
+        <div class="left-column">
+            <div class="section">
+                <div class="form-group inline">
+                    <div class="form-group FieldType1">
+                        <label for="description" data-i18n="Description">Description</label>
+                        <input type="text" id="description" placeholder="Description">
+                    </div>
+                    <div class="form-group FieldType2">
+                        <label for="provider" data-i18n="Provider">Provider</label>
+                        <input type="text" id="provider" placeholder="Provider name" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="form-group FieldType3">
+                        <label for="provider-link" data-i18n="Provider Link">Provider Link</label>
+                        <input type="url" id="provider-link" placeholder="https://provider.com" onblur="extractProviderName()">
+                    </div>
+                </div>
+                <div class="form-group inline">
+                    <div class="form-group FieldType5">
+                        <label for="template" data-i18n="Template">Template</label>
+                        <select id="template" onchange="loadTemplate()">
+                            <option value="">None</option>
+                            <!-- Template options will be populated here -->
+                        </select>
+                    </div>
+                    <div class="form-group FieldType5">
+                        <label for="quoting-currency" data-i18n="Quoting Currency">Quoting Currency</label>
+                        <select id="quoting-currency" onchange="setVatDefault()">
+                            <option value="MXN">MXN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="RUB">RUB</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CNY">CNY</option>
+                            <option value="BTC">BTC</option>
+                            <!-- Add more currencies as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group FieldType5">
+                        <label for="vat" data-i18n="VAT (%)">VAT (%)</label>
+                        <input type="number" id="vat" value="16">
+                    </div>
+                </div>
+            </div>
+            <div class="section second">
+                <div class="form-group inline">
+                    <div class="form-group FieldType4">
+                        <label for="price" data-i18n="Price">Price</label>
+                        <input type="number" id="price" placeholder="Price before VAT">
+                    </div>
+                    <div class="form-group FieldType4">
+                        <label for="remove-vat" data-i18n="Remove VAT">Remove VAT</label>
+                        <input type="checkbox" id="remove-vat">
+                    </div>
+                    <div class="form-group FieldType6">
+                        <label for="currency" data-i18n="Currency">Currency</label>
+                        <select id="currency">
+                            <option value="MXN">MXN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="RUB">RUB</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CNY">CNY</option>
+                            <option value="BTC">BTC</option>
+                            <!-- Add more currencies as needed -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group FieldType4">
+                    <label for="commentary" data-i18n="Commentary">Commentary</label>
+                    <input type="text" id="commentary" placeholder="Commentary">
+                </div>
+            </div>
+            <div class="button" data-i18n="Add Row" onclick="addRow()">Add Item</div>
+            <div class="button" data-i18n="Download XLSX" onclick="downloadXLSX()">Download XLSX</div>
+            <div class="button" data-i18n="Download PDF" onclick="downloadPDF()">Download PDF</div>
+            <div class="button" data-i18n="Save to Google Drive" onclick="saveToGoogleDrive()">Save to Google Drive</div>
+        </div>
+        <div class="right-column">
+            <table id="quoteTable">
+                <thead>
+                    <tr>
+                        <th data-i18n="Description">Description</th>
+                        <th data-i18n="Provider">Provider</th>
+                        <th data-i18n="Price">Price</th>
+                        <th data-i18n="Price with VAT">Price with VAT</th>
+                        <th class="price-in-mxn-header" style="display:none;" data-i18n="Converted Price">Converted Price</th>
+                        <th class="price-in-mxn-vat-header" style="display:none;" data-i18n="Converted Price with VAT">Converted Price with VAT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td data-i18n="TOTAL">TOTAL</td>
+                        <td id="total-provider"></td>
+                        <td id="total-price"></td>
+                        <td id="total-price-with-vat"></td>
+                        <td id="total-price-in-mxn"></td>
+                        <td id="total-price-in-mxn-with-vat"></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.19/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        const templates = [
+            {
+                id: 1,
+                text: "Laptop",
+                description: "Laptop BRAND MODEL: PROCESSOR, XGB DDRX, XGB SSD, 14\" LED, Integrated Graphics, OS: Windows 11 Home."
+            },
+            {
+                id: 2,
+                text: "Monitor",
+                description: "Monitor Dell 24 inch: Full HD, IPS, 75Hz, 5ms, HDMI, VGA."
+            },
+            {
+                id: 3,
+                text: "Keyboard",
+                description: "Mechanical Keyboard: RGB Backlit, Blue Switches, Anti-Ghosting."
+            },
+            // Add more templates as needed
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTemplates();
+            setupI18n(); // Initialize i18n for language support
+        });
+
+        function populateTemplates() {
+            const templateSelect = document.getElementById('template');
+            templates.forEach(template => {
+                const option = document.createElement('option');
+                option.value = template.id;
+                option.textContent = template.text;
+                templateSelect.appendChild(option);
+            });
+        }
+
+        function loadTemplate() {
+            const templateSelect = document.getElementById('template');
+            const selectedTemplate = templates.find(template => template.id == templateSelect.value);
+            if (selectedTemplate) {
+                document.getElementById('description').value = selectedTemplate.description;
+            }
+        }
+
+        async function fetchExchangeRate(fromCurrency, toCurrency) {
+            const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`);
+            const data = await response.json();
+            return data.rates[toCurrency];
+        }
+
+        function extractProviderName() {
+            const providerLink = document.getElementById('provider-link').value;
+            const provider = document.getElementById('provider').value;
+
+            if (!provider && providerLink) {
+                const url = new URL(providerLink);
+                const domain = url.hostname.replace('www.', '');
+                const providerName = domain.split('.')[0].toUpperCase();
+                document.getElementById('provider').value = providerName;
+            }
+        }
+
+        async function addRow() {
+            const provider = document.getElementById('provider').value;
+            const providerLink = document.getElementById('provider-link').value;
+            const description = document.getElementById('description').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const removeVAT = document.getElementById('remove-vat').checked;
+            const currency = document.getElementById('currency').value;
+            const quotingCurrency = document.getElementById('quoting-currency').value;
+            const vat = parseFloat(document.getElementById('vat').value);
+            const commentary = document.getElementById('commentary').value;
+
+            if (isNaN(price) || isNaN(vat)) {
+                alert('Please enter valid numbers for price and VAT.');
+                return;
+            }
+
+            let adjustedDescription = description;
+            if (commentary) {
+                adjustedDescription += `<br><span class="commentary-cell">Commentary: ${commentary}</span>`;
+            }
+
+            let adjustedPrice = price;
+            if (removeVAT) {
+                adjustedPrice = price / (1 + vat / 100);
+            }
+
+            const priceWithVAT = adjustedPrice + (adjustedPrice * vat / 100);
+            let convertedPrice = adjustedPrice;
+            let convertedPriceWithVAT = priceWithVAT;
+            let exchangeRate = 1;
+
+            if (currency !== quotingCurrency) {
+                exchangeRate = await fetchExchangeRate(currency, quotingCurrency);
+                if (!exchangeRate) return;
+                convertedPrice = adjustedPrice * exchangeRate;
+                convertedPriceWithVAT = priceWithVAT * exchangeRate;
+            }
+
+            const table = document.getElementById('quoteTable').getElementsByTagName('tbody')[0];
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${adjustedDescription}</td>
+                <td>${providerLink ? `<a href="${providerLink}" target="_blank">${provider}</a>` : provider}</td>
+                <td>${adjustedPrice.toFixed(2)} ${currency}</td>
+                <td>${priceWithVAT.toFixed(2)} ${currency}</td>
+                <td class="price-in-mxn-cell">${convertedPrice.toFixed(2)} ${quotingCurrency}</td>
+                <td class="price-in-mxn-vat-cell">${convertedPriceWithVAT.toFixed(2)} ${quotingCurrency}</td>
+                <td><button class="delete-btn" onclick="deleteRow(this)">X</button></td>
+            `;
+            table.prepend(newRow); // Add new row to the top
+
+            updateTotals();
+        }
+
+        function deleteRow(button) {
+            const row = button.closest('tr');
+            row.remove();
+            updateTotals();
+        }
+
+        async function updateTotals() {
+            const table = document.getElementById('quoteTable').getElementsByTagName('tbody')[0];
+            const totalPrices = {};
+            const totalPricesWithVAT = {};
+            let totalConvertedPrice = 0;
+            let totalConvertedPriceWithVAT = 0;
+
+            const quotingCurrency = document.getElementById('quoting-currency').value;
+            let allSameCurrency = true;
+
+            for (let row of table.rows) {
+                const currency = row.cells[2].innerText.split(' ')[1];
+                const price = parseFloat(row.cells[2].innerText) || 0;
+                const priceWithVAT = parseFloat(row.cells[3].innerText) || 0;
+
+                if (currency !== quotingCurrency) {
+                    allSameCurrency = false;
+                }
+
+                let exchangeRate = 1;
+                if (currency !== quotingCurrency) {
+                    exchangeRate = await fetchExchangeRate(currency, quotingCurrency);
+                }
+                const convertedPrice = price * exchangeRate;
+                const convertedPriceWithVAT = priceWithVAT * exchangeRate;
+
+                totalConvertedPrice += convertedPrice;
+                totalConvertedPriceWithVAT += convertedPriceWithVAT;
+
+                if (!totalPrices[currency]) {
+                    totalPrices[currency] = 0;
+                    totalPricesWithVAT[currency] = 0;
+                }
+
+                totalPrices[currency] += price;
+                totalPricesWithVAT[currency] += priceWithVAT;
+            }
+
+            const totalPriceElement = document.getElementById('total-price');
+            const totalPriceWithVATElement = document.getElementById('total-price-with-vat');
+            const totalPriceInMXNElement = document.getElementById('total-price-in-mxn');
+            const totalPriceInMXNWithVATElement = document.getElementById('total-price-in-mxn-with-vat');
+
+            totalPriceElement.innerHTML = Object.entries(totalPrices).map(([currency, amount]) => `${amount.toFixed(2)} ${currency}`).join('<br>');
+            totalPriceWithVATElement.innerHTML = Object.entries(totalPricesWithVAT).map(([currency, amount]) => `${amount.toFixed(2)} ${currency}`).join('<br>');
+            totalPriceInMXNElement.innerHTML = allSameCurrency ? '' : `${totalConvertedPrice.toFixed(2)} ${quotingCurrency}`;
+            totalPriceInMXNWithVATElement.innerHTML = allSameCurrency ? '' : `${totalConvertedPriceWithVAT.toFixed(2)} ${quotingCurrency}`;
+
+            const displayStyle = allSameCurrency ? 'none' : 'table-cell';
+            document.querySelector('.price-in-mxn-header').style.display = displayStyle;
+            document.querySelector('.price-in-mxn-vat-header').style.display = displayStyle;
+            document.querySelectorAll('.price-in-mxn-cell').forEach(cell => cell.style.display = displayStyle);
+            document.querySelectorAll('.price-in-mxn-vat-cell').forEach(cell => cell.style.display = displayStyle);
+        }
+
+        function downloadXLSX() {
+            const table = document.getElementById('quoteTable');
+            const workbook = XLSX.utils.table_to_book(table, { sheet: "Quotes" });
+
+            // Add custom styles
+            const ws = workbook.Sheets["Quotes"];
+            const range = XLSX.utils.decode_range(ws["!ref"]);
+            for (let R = range.s.r; R <= range.e.r; ++R) {
+                for (let C = range.s.c; C <= range.e.c; ++C) {
+                    const cell = ws[XLSX.utils.encode_cell({ r: R, c: C })];
+                    if (!cell) continue;
+                    if (R === 0) {
+                        cell.s = {
+                            font: { bold: true, color: { rgb: "FFFFFF" } },
+                            fill: { fgColor: { rgb: "007BFF" } },
+                            alignment: { horizontal: "center" }
+                        };
+                    } else if (C === 2 || C === 3 || C === 4 || C === 5) {
+                        cell.s = {
+                            alignment: { horizontal: "right" }
+                        };
+                    }
+                }
+            }
+
+            // Hide "Converted Price" and "Converted Price with VAT" columns if not needed
+            if (document.querySelector('.price-in-mxn-header').style.display === 'none') {
+                delete ws['E1'];
+                delete ws['F1'];
+                ws['!ref'] = `A1:D${range.e.r + 1}`;
+            }
+
+            XLSX.writeFile(workbook, 'quotes.xlsx');
+        }
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add header
+            doc.setFontSize(18);
+            doc.text(i18next.t('General Quotation'), 14, 20); // Using translation for the title
+            // Add a logo
+            doc.addImage('https://carino.systems/assets/images/logo.webp', 'PNG', 150, 10, 40, 20);
+
+            // Prepare the table data
+            const quoteTable = document.getElementById('quoteTable');
+            const headers = [...quoteTable.querySelectorAll('thead th')].map(th => th.innerText);
+            const body = [...quoteTable.querySelectorAll('tbody tr')].map(tr => [...tr.children].map(td => td.innerText));
+            const footers = [...quoteTable.querySelectorAll('tfoot td')].map(td => td.innerText);
+
+            // Add the table
+            doc.autoTable({
+                head: [headers],
+                body: body,
+                foot: [footers],
+                startY: 40,
+                styles: {
+                    fontSize: 10,
+                    cellPadding: 3,
+                    fillColor: [255, 255, 255]
+                },
+                headStyles: {
+                    fillColor: [0, 123, 255],
+                    textColor: [255, 255, 255]
+                },
+                margin: { top: 60 }
+            });
+
+            doc.save('quotes.pdf');
+        }
+
+        function saveToGoogleDrive() {
+            alert('This function requires Google Drive API integration.');
+        }
+
+        async function recalculateAllRows() {
+            const table = document.getElementById('quoteTable').getElementsByTagName('tbody')[0];
+            const quotingCurrency = document.getElementById('quoting-currency').value;
+
+            for (let row of table.rows) {
+                const currency = row.cells[2].innerText.split(' ')[1];
+                const price = parseFloat(row.cells[2].innerText) || 0;
+                const priceWithVAT = parseFloat(row.cells[3].innerText) || 0;
+
+                let exchangeRate = 1;
+                if (currency !== quotingCurrency) {
+                    exchangeRate = await fetchExchangeRate(currency, quotingCurrency);
+                }
+                const convertedPrice = price * exchangeRate;
+                const convertedPriceWithVAT = priceWithVAT * exchangeRate;
+
+                row.cells[4].innerText = `${convertedPrice.toFixed(2)} ${quotingCurrency}`;
+                row.cells[5].innerText = `${convertedPriceWithVAT.toFixed(2)} ${quotingCurrency}`;
+            }
+
+            updateTotals();
+        }
+
+        function setVatDefault() {
+            const vatDefaults = {
+                'MXN': 16,
+                'USD': 0,
+                'EUR': 20,
+                'GBP': 20,
+                'JPY': 10,
+                'RUB': 20,
+                'CAD': 5,
+                'CNY': 13,
+                'BTC': 0
+            };
+            const quotingCurrency = document.getElementById('quoting-currency').value;
+            const vat = vatDefaults[quotingCurrency] || 16;
+            document.getElementById('vat').value = vat;
+            recalculateAllRows();
+        }
+
+        function getCurrentDate() {
+            var currentDate = new Date();
+            var day = currentDate.getDate();
+            var month = currentDate.getMonth() + 1; // Months are zero based
+            var year = currentDate.getFullYear();
+            
+            // Format date as YYYY-MM-DD
+            var formattedDate = '「 ' + year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day + ' 」');
+            
+            // Return formatted date string
+            return formattedDate;
+        }
+        
+        // Update the span with id "current-date" with the current date
+        window.onload = function() {
+            document.getElementById('current-date').textContent = getCurrentDate();
+        };
+
+        function setupI18n() {
+            i18next.use(i18nextBrowserLanguageDetector).init({
+                fallbackLng: 'en',
+                debug: true,
+                resources: {
+                    en: {
+                        translation: {
+                            "General Quoting Template": "General Quoting Template",
+                            "General Quotation": "General Quotation",
+                            "Description": "Description",
+                            "Provider": "Provider",
+                            "Provider Link": "Provider Link",
+                            "Template": "Template",
+                            "Quoting Currency": "Quoting Currency",
+                            "VAT (%)": "VAT (%)",
+                            "Price": "Price",
+                            "Remove VAT": "Remove VAT",
+                            "Currency": "Currency",
+                            "Commentary": "Commentary",
+                            "Add Row": "Add Row",
+                            "Download XLSX": "Download XLSX",
+                            "Download PDF": "Download PDF",
+                            "Save to Google Drive": "Save to Google Drive",
+                            "TOTAL": "TOTAL",
+                            "Action": "Action",
+                            "Price with VAT": "Price with VAT",
+                            "Converted Price": "Converted Price",
+                            "Converted Price with VAT": "Converted Price with VAT",
+                            "Github": "Github"
+                        }
+                    },
+                    es: {
+                        translation: {
+                            "General Quoting Template": "Plantilla General de Cotización",
+                            "General Quotation": "Cotización General",
+                            "Description": "Descripción",
+                            "Provider": "Proveedor",
+                            "Provider Link": "Enlace del Proveedor",
+                            "Template": "Plantilla",
+                            "Quoting Currency": "Moneda de Cotización",
+                            "VAT (%)": "IVA (%)",
+                            "Price": "Precio",
+                            "Remove VAT": "Eliminar IVA",
+                            "Currency": "Moneda",
+                            "Commentary": "Comentario",
+                            "Add Row": "Agregar Fila",
+                            "Download XLSX": "Descargar XLSX",
+                            "Download PDF": "Descargar PDF",
+                            "Save to Google Drive": "Guardar en Google Drive",
+                            "TOTAL": "TOTAL",
+                            "Action": "Acción",
+                            "Price with VAT": "Precio con IVA",
+                            "Converted Price": "Precio Convertido",
+                            "Converted Price with VAT": "Precio Convertido con IVA",
+                            "Github": "Github"
+                        }
+                    },
+                    ja: {
+                        translation: {
+                            "General Quoting Template": "一般見積もりテンプレート",
+                            "General Quotation": "一般見積",
+                            "Description": "説明",
+                            "Provider": "プロバイダー",
+                            "Provider Link": "プロバイダーリンク",
+                            "Template": "テンプレート",
+                            "Quoting Currency": "見積もり通貨",
+                            "VAT (%)": "消費税 (%)",
+                            "Price": "価格",
+                            "Remove VAT": "消費税を削除",
+                            "Currency": "通貨",
+                            "Commentary": "コメント",
+                            "Add Row": "行を追加",
+                            "Download XLSX": "XLSXをダウンロード",
+                            "Download PDF": "PDFをダウンロード",
+                            "Save to Google Drive": "Googleドライブに保存",
+                            "TOTAL": "合計",
+                            "Action": "アクション",
+                            "Price with VAT": "消費税込み価格",
+                            "Converted Price": "変換後の価格",
+                            "Converted Price with VAT": "消費税込みの変換後の価格",
+                            "Github": "Github"
+                        }
+                    },
+                    ru: {
+                        translation: {
+                            "General Quoting Template": "Общая форма котировок",
+                            "General Quotation": "Общая котировка",
+                            "Description": "Описание",
+                            "Provider": "Поставщик",
+                            "Provider Link": "Ссылка на поставщика",
+                            "Template": "Шаблон",
+                            "Quoting Currency": "Валюта котировки",
+                            "VAT (%)": "НДС (%)",
+                            "Price": "Цена",
+                            "Remove VAT": "Удалить НДС",
+                            "Currency": "Валюта",
+                            "Commentary": "Комментарий",
+                            "Add Row": "Добавить строку",
+                            "Download XLSX": "Скачать XLSX",
+                            "Download PDF": "Скачать PDF",
+                            "Save to Google Drive": "Сохранить на Google Диск",
+                            "TOTAL": "ИТОГО",
+                            "Action": "Действие",
+                            "Price with VAT": "Цена с НДС",
+                            "Converted Price": "Конвертированная цена",
+                            "Converted Price with VAT": "Конвертированная цена с НДС",
+                            "Github": "Github"
+                        }
+                    },
+                    iu: {
+                        translation: {
+                            "General Quoting Template": "ᑲᑐᐃᔨᓴᕆᐊᖅᑕᐅᑉ ᐊᑐᕐᓂᖅ ᐊᑐᖃᖅᑕᐅᔪᖅ",
+                            "General Quotation": "ᑲᑐᐃᔨᓴᕆᐊᖅᑕᐅᑉ ᐊᑐᕐᓂᖅ",
+                            "Description": "ᓇᓗᓇᐃᑦᑐᓂᖓ",
+                            "Provider": "ᐅᑭᐅᖅᑐᑦᓯ",
+                            "Provider Link": "ᐅᑭᐅᖅᑐᑦᓯᒥᑦ ᐊᑐᖃᓯᑦ",
+                            "Template": "ᐃᓕᖅᑲᑕᓲᖑᐊᕐᕕᒃ",
+                            "Quoting Currency": "ᐊᑐᖃᕐᕕᒋᑦ ᐊᑐᕆᓄᑦ",
+                            "VAT (%)": "ᓇᓗᓇᐃᑦᑐᓂᖓ (%)",
+                            "Price": "ᐅᕝᕙᓂᖓ",
+                            "Remove VAT": "ᓇᓗᓇᐃᑦᑐᓂᒃ ᐊᑐᖃᖅᑕᐅᓂᖅ",
+                            "Currency": "ᐊᑐᕐᓂᖅ",
+                            "Commentary": "ᐅᔭᓐᓇᒻᒪᕆᐊᓗᒃ",
+                            "Add Row": "ᓂᐅᕕᓂᖅ ᐊᑐᕐᓂᖅ",
+                            "Download XLSX": "XLSX ᐊᑐᖃᖅᑕᐅᑎᓪᓗᒍ",
+                            "Download PDF": "PDF ᐊᑐᖃᖅᑕᐅᑎᓪᓗᒍ",
+                            "Save to Google Drive": "Google Drive ᒥᓪᓗᒍ ᑐᙵᒋᐊᕐᕕᑦ",
+                            "TOTAL": "ᐅᕝᕙᓂᖓ",
+                            "Action": "ᑲᑐᐃᔨᓴᖅ",
+                            "Price with VAT": "ᓇᓗᓇᐃᑦᑐᓂᒃ ᐊᑐᕆᓄᑦ",
+                            "Converted Price": "ᐅᑎᕐᓂᖓ ᐅᑭᐅᖅᑐᑦᓯ",
+                            "Converted Price with VAT": "ᓇᓗᓇᐃᑦᑐᓂᖅ ᐅᑎᕐᓂᖓ ᐅᑭᐅᖅᑐᑦᓯ",
+                            "Github": "Github"
+                        }
+                    }
+                }
+            }, function(err, t) {
+                jqueryI18next.init(i18next, $, {
+                    useOptionsAttr: true
+                });
+                updateContent();
+            });
+
+            $('#language-select').change(function() {
+                const selectedLang = $(this).val();
+                i18next.changeLanguage(selectedLang, updateContent);
+            });
+        }
+
+        function updateContent() {
+            $('body').localize();
+        }
+    </script>
+</body>
+</html>
